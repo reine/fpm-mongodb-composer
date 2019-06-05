@@ -16,8 +16,9 @@ RUN apt-get update \
 WORKDIR ${APP_WORKDIR}
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && echo "alias composer='/usr/local/bin/composer'" >> ${APP_WORKDIR} . '.bash_aliases'
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+CMD alias composer='/usr/local/bin/composer'
 
 # Open port
 EXPOSE 9000
